@@ -1,4 +1,4 @@
-BLC를 사용한 Commer platform pilot!
+BLC를 사용한 Commerce platform pilot!
 
 ## The New Broadleaf Commerce Demo Site
 
