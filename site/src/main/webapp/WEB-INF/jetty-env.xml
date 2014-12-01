@@ -8,9 +8,10 @@ IT IS NOT RECOMMENDED TO USE JETTY IN A PRODUCTION ENVIRONMENT.
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
 
     <!-- Add an EnvEntry only valid for this webapp -->
+<!--
     <New id="appName" class="org.eclipse.jetty.plus.jndi.EnvEntry">
         <Arg>appName</Arg>
-        <Arg type="java.lang.String">mycompany-site</Arg>
+        <Arg type="java.lang.String">sandboxnine-site</Arg>
         <Arg type="boolean">true</Arg>
     </New>
     
@@ -49,5 +50,55 @@ IT IS NOT RECOMMENDED TO USE JETTY IN A PRODUCTION ENVIRONMENT.
             </New>
         </Arg>
     </New>
+-->
+    <New id="webDS" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/web</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+                <Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+                <!--
+                <Set name="url">jdbc:mysql://localhost:3306/blc_demo?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">blc</Set>
+                <Set name="password">blc00</Set>
+                -->
+                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">itwise</Set>
+                <Set name="password">itwise00</Set>
+            </New>
+        </Arg>
+    </New>
 
+    <New id="webSecureDS" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/secure</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+                <Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+                <!--
+                <Set name="url">jdbc:mysql://localhost:3306/blc_demo?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">blc</Set>
+                <Set name="password">blc00</Set>
+                -->
+                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">itwise</Set>
+                <Set name="password">itwise00</Set>
+            </New>
+        </Arg>
+    </New>
+
+    <New id="webStorageDS" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/storage</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+                <Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+                <!--
+                <Set name="url">jdbc:mysql://localhost:3306/blc_demo?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">blc</Set>
+                <Set name="password">blc00</Set>
+                -->
+                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">itwise</Set>
+                <Set name="password">itwise00</Set>
+            </New>
+        </Arg>
+    </New>
 </Configure>

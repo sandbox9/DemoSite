@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany</groupId>
+    <groupId>com.sandboxnine</groupId>
     <artifactId>ecommerce-website</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
@@ -109,8 +109,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.0.2</version>
                     <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
+                        <source>1.7</source>
+                        <target>1.7</target>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -195,7 +195,7 @@
             </dependency>
             
             <dependency>
-                <groupId>com.mycompany</groupId>
+                <groupId>com.sandboxnine</groupId>
                 <artifactId>core</artifactId>
                 <version>1.0</version>
                 <type>jar</type>
@@ -305,6 +305,15 @@
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
+            <!-- 추가 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.26</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <!-- 추가 -->
         </dependencies>
     </dependencyManagement>
     <modules>
