@@ -94,5 +94,6 @@
         <property name="collectionRef" value="customClassTransformers" />
         <property name="targetRef" value="blMergedClassTransformers" />
     </bean>
-
+	
+		<context:component-scan base-package="com.sandboxnine.sample.domain" />
 </beans>
