@@ -67,53 +67,6 @@
                 </configuration>
             </plugin>
         
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>keytool-maven-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <id>clean</id>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <id>generateKeyPair</id>
-                        <goals>
-                            <goal>generateKeyPair</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <keystore>${webappDirectory}/WEB-INF/blc-example.keystore</keystore>
-                    <dname>cn=localhost</dname>
-                    <keypass>broadleaf</keypass>
-                    <storepass>broadleaf</storepass>
-                    <alias>broadleaf</alias>
-                    <keyalg>RSA</keyalg>
-                </configuration>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.zeroturnaround</groupId>
-                <artifactId>jrebel-maven-plugin</artifactId>
-                <configuration>
-                    <packaging>war</packaging>
-                    <rootPath>${basedir}</rootPath>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-rebel-xml</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <dependencies>
