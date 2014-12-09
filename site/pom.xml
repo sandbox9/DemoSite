@@ -104,5 +104,12 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- 추가 -->
+        
+        <!-- Paypal 결제모듈 추가 -->
+		<dependency>
+			<groupId>org.broadleafcommerce</groupId>
+			<artifactId>broadleaf-paypal</artifactId>
+		</dependency>
+        
     </dependencies>
 </project>
