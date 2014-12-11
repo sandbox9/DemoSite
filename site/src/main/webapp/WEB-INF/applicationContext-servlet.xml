@@ -21,7 +21,11 @@
     <context:component-scan base-package="org.broadleafcommerce.profile.web.core.service.login"/>
 
     <!-- Scan DemoSite Sample Payment Gateway Implementation -->
-    <context:component-scan base-package="com.sandboxnine.sample" />
+    <!-- 기존 NullPaymentGateway 설정 제거 -->
+<!--     <context:component-scan base-package="com.sandboxnine.sample" /> -->
+    
+    <!-- Paypal Payment Gateway 구현 bean 스캐닝 -->
+    <context:component-scan base-package="org.broadleafcommerce.vendor.paypal"/>
 
     <!-- Turn on AOP annotations (required by Broadleaf) -->
     <aop:config/>
