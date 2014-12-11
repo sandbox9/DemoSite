@@ -60,7 +60,7 @@ IT IS NOT RECOMMENDED TO USE JETTY IN A PRODUCTION ENVIRONMENT.
                 <Set name="username">blc</Set>
                 <Set name="password">blc00</Set>
                 -->
-                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="url">jdbc:mysql://itwise3.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/blc?useUnicode=true&amp;characterEncoding=utf8</Set>
                 <Set name="username">itwise</Set>
                 <Set name="password">itwise00</Set>
             </New>
@@ -77,7 +77,7 @@ IT IS NOT RECOMMENDED TO USE JETTY IN A PRODUCTION ENVIRONMENT.
                 <Set name="username">blc</Set>
                 <Set name="password">blc00</Set>
                 -->
-                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="url">jdbc:mysql://itwise3.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/blc?useUnicode=true&amp;characterEncoding=utf8</Set>
                 <Set name="username">itwise</Set>
                 <Set name="password">itwise00</Set>
             </New>
@@ -94,7 +94,7 @@ IT IS NOT RECOMMENDED TO USE JETTY IN A PRODUCTION ENVIRONMENT.
                 <Set name="username">blc</Set>
                 <Set name="password">blc00</Set>
                 -->
-                <Set name="url">jdbc:mysql://itwise.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/BLC?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="url">jdbc:mysql://itwise3.cuaswe8zuh4h.ap-southeast-1.rds.amazonaws.com:3306/blc?useUnicode=true&amp;characterEncoding=utf8</Set>
                 <Set name="username">itwise</Set>
                 <Set name="password">itwise00</Set>
             </New>

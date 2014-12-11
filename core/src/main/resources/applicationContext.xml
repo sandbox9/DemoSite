@@ -37,30 +37,29 @@
         </property>
     </bean>
 
-    <!-- Scan DemoSite Sample Payment Gateway Implementation -->
-    <context:component-scan base-package="com.sandboxnine.sample" />
-
-    <bean class="com.sandboxnine.sample.vendor.nullPaymentGateway.service.payment.NullPaymentGatewayType"/>
-
-    <!-- Add Sample Thymeleaf Processor to test Hosted Payment Gateway (e.g. PayPal Express Flow) -->
-    <bean id="myNullPaymentGatewayHostedActionProcessor" class="com.sandboxnine.sample.vendor.nullPaymentGateway.web.processor.NullPaymentGatewayHostedActionProcessor"/>
-    <bean id="mySamplePaymentProcessors" class="org.springframework.beans.factory.config.SetFactoryBean">
+    <!-- Paypal Payment Gateway start -->
+    <!-- Paypal Payment Gateway 구현 적용 -->
+    <context:component-scan base-package="org.broadleafcommerce.payment.service.gateway"/>
+    <context:component-scan base-package="org.broadleafcommerce.vendor.paypal"/>
+    <bean class="org.broadleafcommerce.vendor.paypal.service.payment.PayPalExpressPaymentGatewayType"/>
+    
+    <bean id="blPayPalExpressCheckoutLinkProcessor" class="org.broadleafcommerce.vendor.paypal.web.processor.PayPalExpressCheckoutLinkProcessor"/>
+    <bean id="myCompanyPaymentProcessors" class="org.springframework.beans.factory.config.SetFactoryBean">
         <property name="sourceSet">
             <set>
-                <ref bean="myNullPaymentGatewayHostedActionProcessor"/>
+                <ref bean="blPayPalExpressCheckoutLinkProcessor"/>
             </set>
         </property>
     </bean>
     <bean class="org.broadleafcommerce.common.extensibility.context.merge.LateStageMergeBeanPostProcessor">
-        <property name="collectionRef" value="mySamplePaymentProcessors"/>
+        <property name="collectionRef" value="myCompanyPaymentProcessors"/>
         <property name="targetRef" value="blDialectProcessors"/>
     </bean>
 
     <bean id="mySampleConfigurationServices" class="org.springframework.beans.factory.config.ListFactoryBean">
         <property name="sourceList">
             <list>
-                <ref bean="blNullPaymentGatewayConfigurationService"/>
-                <ref bean="blNullPaymentGatewayHostedConfigurationService"/>
+                <ref bean="blPayPalExpressConfigurationService"/>
             </list>
         </property>
     </bean>
@@ -68,6 +67,40 @@
         <property name="collectionRef" value="mySampleConfigurationServices"/>
         <property name="targetRef" value="blPaymentGatewayConfigurationServices"/>
     </bean>
+    
+    <!-- Paypal Payment Gateway end -->
+    
+        <!-- Scan DemoSite Sample Payment Gateway Implementation -->
+<!--     <context:component-scan base-package="com.sandboxnine.sample" /> -->
+
+<!--     <bean class="com.sandboxnine.sample.vendor.nullPaymentGateway.service.payment.NullPaymentGatewayType"/> -->
+
+    <!-- Add Sample Thymeleaf Processor to test Hosted Payment Gateway (e.g. PayPal Express Flow) -->
+<!--     <bean id="myNullPaymentGatewayHostedActionProcessor" class="com.sandboxnine.sample.vendor.nullPaymentGateway.web.processor.NullPaymentGatewayHostedActionProcessor"/> -->
+<!--     <bean id="mySamplePaymentProcessors" class="org.springframework.beans.factory.config.SetFactoryBean"> -->
+<!--         <property name="sourceSet"> -->
+<!--             <set> -->
+<!--                 <ref bean="myNullPaymentGatewayHostedActionProcessor"/> -->
+<!--             </set> -->
+<!--         </property> -->
+<!--     </bean> -->
+<!--     <bean class="org.broadleafcommerce.common.extensibility.context.merge.LateStageMergeBeanPostProcessor"> -->
+<!--         <property name="collectionRef" value="mySamplePaymentProcessors"/> -->
+<!--         <property name="targetRef" value="blDialectProcessors"/> -->
+<!--     </bean> -->
+
+<!--     <bean id="mySampleConfigurationServices" class="org.springframework.beans.factory.config.ListFactoryBean"> -->
+<!--         <property name="sourceList"> -->
+<!--             <list> -->
+<!--                 <ref bean="blNullPaymentGatewayConfigurationService"/> -->
+<!--                 <ref bean="blNullPaymentGatewayHostedConfigurationService"/> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--     </bean> -->
+<!--     <bean class="org.broadleafcommerce.common.extensibility.context.merge.LateStageMergeBeanPostProcessor"> -->
+<!--         <property name="collectionRef" value="mySampleConfigurationServices"/> -->
+<!--         <property name="targetRef" value="blPaymentGatewayConfigurationServices"/> -->
+<!--     </bean> -->
     <!-- /End DemoSite NullPaymentGateway Config -->
 
     <!-- Inventory class transformer to enable simple inventory management. This transformer should be removed in Broadleaf 3.2.0+ -->
