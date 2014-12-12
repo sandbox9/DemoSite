@@ -3,7 +3,7 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+ㄹ
 <head th:include="/layout/partials/head (pageTitle=${category.name + ' - Broadleaf Demo - Heat Clinic'})"></head>
 
 <body>
@@ -20,7 +20,18 @@
                 <h1 th:inline="text">
                     <span th:text="#{category.viewing}">Viewing</span> [[${category.name}]] ([[${result.startResult}]] - [[${result.endResult}]] <span th:text="#{category.of}">of</span> [[${result.totalResults}]])
                 </h1>
-                <div th:substituteby="catalog/partials/productSortOptions"></div>
+                <!--<div th:substituteby="catalog/partials/productSortOptions"></div>-->
+
+                <div id="sort">
+                    <span class="heading">
+                        <span>Sort by:</span>
+                    </span>
+
+                    <span th:each="sortOption : ${category.sortOptions}"  th:object="${sortOption}">
+                    <a th:href="@{*{link}}"><span th:text="*{displayText}">test</span></a>
+                    </span>
+
+                </div>
             </header>
             
             <ul id="products" class="group">
@@ -49,8 +60,8 @@
                              </ul>
                         </div>                                  
                     </div>
-                </section>  
-                
+                </section>
+
             </div>
         </section>
             

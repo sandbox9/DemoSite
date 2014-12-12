@@ -6,6 +6,9 @@
              
     <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
         <non-jta-data-source>jdbc/web</non-jta-data-source>
+        <class>com.sandboxnine.sample.domain.catalog.ExCategoryImpl</class>
+        <class>com.sandboxnine.sample.domain.catalog.SortOptionImpl</class>
+        <class>com.sandboxnine.sample.domain.catalog.ExCategorySortOptionImpl</class>
         <exclude-unlisted-classes/>
     </persistence-unit>
     
