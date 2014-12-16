@@ -2,12 +2,4 @@ language: java
 jdk:
   - openjdk7
 script:
-  mvn install -DskipTests=true
-deploy:
-  provider: s3
-  access_key_id: AKIAIMHZTHLDHBR3NGGA
-  secret_access_key: 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
-  bucket: itwiseblcdemo
-  endpoint: s3-website-ap-northeast-1.amazonaws.com
-  region: northeast-1
-  skip_cleanup: true
+  mvn install
