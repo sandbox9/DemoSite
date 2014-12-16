@@ -3,11 +3,10 @@ jdk:
   - openjdk7
 script:
   mvn install -DskipTests=true
-addons:
-  artifacts:
-    key: AKIAISUF4ZOYX6JDJONQ
-    secret: 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
-    bucket: itwiseblcdemo
-    endpoint: s3-website-ap-northeast-1.amazonaws.com
-    region: northeast-1
-    upload-dir: Demo
+deploy:
+  key: AKIAIMHZTHLDHBR3NGGA
+  secret: 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
+  bucket: itwiseblcdemo
+  endpoint: s3-website-ap-northeast-1.amazonaws.com
+  region: northeast-1
+  upload-dir: Demo
