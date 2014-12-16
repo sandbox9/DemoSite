@@ -3,3 +3,8 @@ jdk:
   - openjdk7
 script:
   mvn install -DskipTests=true
+addons:
+  artifacts:
+    key: "AKIAISUF4ZOYX6JDJONQ"
+    secret: "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"
+    bucket: "itwise"
