@@ -37,7 +37,7 @@ RUN apt-get update && \
 
 
 # get Jenkins from Nexus
-RUN wget /tmp/Jenkins.war http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
+RUN wget --directory-prefix=/tmp/ http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
 
 RUN apt-get -qq install tomcat7
 RUN apt-get -qq install curl
@@ -48,3 +48,6 @@ RUN ln -s /tmp /var/lib/tomcat7/webapps
 
 RUN chown tomcat7:tomcat7 /tmp
 RUN service tomcat7 restart
+
+EXPOSE 80
+EXPOSE 8080
