@@ -37,7 +37,7 @@ RUN apt-get update && \
 
 
 # get Jenkins from Nexus
-RUN wget --no-verbose -O /tmp/Jenkins.war http://192.168.0.35:8081/content/repositories/thirdparty/jenkins/jenkins-ci/1.580.1/jenkins-ci-1.580.1.war
+RUN wget /tmp/Jenkins.war http://192.168.0.35:8081/content/repositories/thirdparty/jenkins/jenkins-ci/1.580.1/jenkins-ci-1.580.1.war
 
 RUN apt-get -qq install tomcat7
 RUN apt-get -qq install curl
@@ -46,5 +46,5 @@ RUN apt-get -qq install bash
 
 RUN ln -s /tmp /var/lib/tomcat7/webapps
 
-chown tomcat7:tomcat7 /tmp
-service tomcat7 restart
+RUN chown tomcat7:tomcat7 /tmp
+RUN service tomcat7 restart
