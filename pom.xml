@@ -314,11 +314,17 @@
                 <scope>compile</scope>
             </dependency>
             <!-- 추가 -->
+            <dependency>
+            	<groupId>itwise.broadleafcommerce</groupId>
+            	<artifactId>coupon</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <modules>
         <module>admin</module>
         <module>core</module>
         <module>site</module>
+        <module>itwise.blc-coupon</module>
     </modules>
 </project>

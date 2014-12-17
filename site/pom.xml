@@ -151,5 +151,9 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- 추가 -->
+        <dependency>
+        	<groupId>itwise.broadleafcommerce</groupId>
+        	<artifactId>coupon</artifactId>
+        </dependency>
     </dependencies>
 </project>
