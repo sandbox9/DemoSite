@@ -145,8 +145,15 @@
             <dd>
                 <div id="paypalfields">
                     <div class="form100">
-                        <img th:src="@{/img/paypal.gif}" alt="Pay with Paypal" width="100" />
-                    </div>
+                    
+                    	<!-- paypal 더미 이미지 -->
+<!--                         <img th:src="@{/img/paypal.gif}" alt="Pay with Paypal" width="100" /> -->
+						<!-- paypal 제공 이미지  -->
+						<a blc:paypal_express_link="${paymentRequestDTO}" complete_checkout="${true}">
+							<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right: 7px;" />
+						</a>
+						
+					</div>
                 </div>
             </dd>
             <dt>

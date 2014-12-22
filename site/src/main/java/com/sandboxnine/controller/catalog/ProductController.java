@@ -33,6 +33,8 @@ public class ProductController extends BroadleafProductController {
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return super.handleRequest(request, response);
+
+        // test
     }
 
 }

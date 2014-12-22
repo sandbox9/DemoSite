@@ -14,13 +14,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <description>My Company's eCommerce Website</description>
+    
     <repositories>
         <repository>
             <id>public snapshots</id>
             <name>public snapshots</name>
             <url>http://nexus.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
+            <releases><enabled>false</enabled></releases>
+        </repository>
+        <!-- blc-paypal Maven Repository -->
+        <repository>
+            <id>public releases</id>
+            <name>public snapshots</name>
+            <url>http://nexus.broadleafcommerce.org/nexus/content/repositories/releases/</url>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
     </repositories>
+    
     <build>
         <pluginManagement>
             <plugins>
@@ -111,6 +121,7 @@
                     <configuration>
                         <source>1.7</source>
                         <target>1.7</target>
+						<encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -319,6 +330,16 @@
             	<artifactId>coupon</artifactId>
             	<version>0.0.1-SNAPSHOT</version>
             </dependency>
+
+			<!-- Paypal 결제모듈 -->
+			<dependency>
+				<groupId>org.broadleafcommerce</groupId>
+				<artifactId>broadleaf-paypal</artifactId>
+				<version>2.6.0-GA</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+            
         </dependencies>
     </dependencyManagement>
     <modules>

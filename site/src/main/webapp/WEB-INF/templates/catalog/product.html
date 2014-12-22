@@ -125,7 +125,9 @@
                         <p th:if="*{#maps.size(media) > 1}" class="thumbs_nav">Swipe to see more... (<span th:text="'1 of ' + *{#maps.size(media) > 3 ? 3 : #maps.size(media)}"></span>)</p>
                         
                     </li>
-                    
+
+
+
                     <li th:each="media, iterStat : *{media}" th:unless="${media.key == 'primary'}">
                         <a href="javascript:;"
                             th:rel="${'{ gallery: ''gal1'', smallimage: ''__@{${media.value.url}+'?browse'}__'', largeimage: ''__@{${media.value.url}}__'' }'}" th:attr="data-tags=${media.value.tags}">
@@ -234,7 +236,7 @@
             <header>Featured Products</header>
             <div id="options">
                 <div class="section">
-                     <blc:related_products productId="${product.id}"/>   
+                    <blc:related_products productId="${product.id}"/>
                     <ul id="featured_products" class="group">
                         <li th:each="relatedProduct : ${relatedProducts}" th:object="${relatedProduct.relatedProduct}" th:include="catalog/partials/productListItem" class="product_container"></li>
                     </ul>
