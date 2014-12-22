@@ -17,15 +17,15 @@ import org.springframework.stereotype.Repository;
 @Repository("blCouponDao")
 public class CouponDaoImpl implements CouponDao {
 
-	@PersistenceContext(unitName="blPU")
+	@PersistenceContext(unitName = "blPU")
 	protected EntityManager em;
 
-	@Resource(name="blEntityConfiguration")
+	@Resource(name = "blEntityConfiguration")
 	protected EntityConfiguration entityConfiguration;
-	
+
 	@Resource(name = "blCustomerDao")
 	protected CustomerDao customerDao;
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Coupon> readCouponsForCustomer(final Long customerId) {
@@ -34,51 +34,46 @@ public class CouponDaoImpl implements CouponDao {
 		return query.getResultList();
 	}
 
-
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Coupon> readCouponsForDownload() {
 		final Query query = em.createNamedQuery("BC_READ_COUPONS_FOR_DOWNLOAD");
 		return query.getResultList();
 	}
-	
+
 	@Override
 	public void download(final CustomerCoupon customerCoupon) {
 		em.persist(customerCoupon);
 	}
 
 	@Override
-	public void doApplyCoupon2Item(Long customerId, String couponId,
-			Long orderItemId) {
+	public void doApplyCoupon2OrderItem(Long customerId, Long couponId, Long orderItemId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void doApplyCoupon2Order(Long customerId, String couponId,
-			Long orderId) {
+	public void doApplyCoupon2Order(Long customerId, Long couponId, Long orderId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void doApplyCoupon2Fulfillment(Long customerId, String couponId,
-			Long orderId) {
+	public void doApplyCoupon2Fulfillment(Long customerId, Long couponId, Long orderId) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Coupon readCouponByCouponId(final String couponId) {
-        if (couponId == null || "".equals(couponId)) {
-            return null;
-        }
-        final Query query = em.createNamedQuery("BC_READ_COUPON_BY_COUPON_ID");
-        query.setParameter("couponId", couponId);
-        List<Coupon> coupons = query.getResultList();
-        return coupons == null || coupons.isEmpty() ? null : coupons.get(0);
+	public Coupon readCouponByCouponId(final Long couponId) {
+		if (couponId == null || "".equals(couponId)) {
+			return null;
+		}
+		final Query query = em.createNamedQuery("BC_READ_COUPON_BY_COUPON_ID");
+		query.setParameter("couponId", couponId);
+		List<Coupon> coupons = query.getResultList();
+		return coupons == null || coupons.isEmpty() ? null : coupons.get(0);
 	}
 
 }

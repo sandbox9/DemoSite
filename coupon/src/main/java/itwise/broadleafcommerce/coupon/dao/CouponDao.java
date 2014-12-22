@@ -9,11 +9,11 @@ public interface CouponDao {
 
 	List<Coupon> readCouponsForCustomer(Long customerId);
 	List<Coupon> readCouponsForDownload();
-	Coupon readCouponByCouponId(String couponId);
+	Coupon readCouponByCouponId(Long couponId);
 
 	void download(CustomerCoupon customerCoupon);
 
-	void doApplyCoupon2Item(Long customerId, String couponId, Long orderItemId);
-	void doApplyCoupon2Order(Long customerId, String couponId, Long orderId);
-	void doApplyCoupon2Fulfillment(Long customerId, String couponId, Long orderId);
+	void doApplyCoupon2OrderItem(Long customerId, Long couponId, Long orderItemId);
+	void doApplyCoupon2Order(Long customerId, Long couponId, Long orderId);
+	void doApplyCoupon2Fulfillment(Long customerId, Long couponId, Long fulfillmentId);
 }
