@@ -28,8 +28,7 @@ RUN apt-get install -y git
 RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends software-properties-common && \
+RUN apt-get install -y --no-install-recommends software-properties-common && \
     add-apt-repository ppa:webupd8team/java && \
     apt-get update && \
     apt-get install -y --no-install-recommends oracle-java7-installer
@@ -47,7 +46,8 @@ RUN apt-get -qq install bash
 RUN ln -s /tmp /var/lib/tomcat7/webapps
 
 RUN chown tomcat7:tomcat7 /tmp
-RUN service tomcat7 restart
+RUN service tomcat7 start
 
 EXPOSE 80
 EXPOSE 8080
+
